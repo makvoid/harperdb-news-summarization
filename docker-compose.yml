@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  harperdb:
+    restart: always
+    image: harperdb/harperdb:4.3.18
+    environment:
+      - HDB_ADMIN_USERNAME=HDB_ADMIN
+      - HDB_ADMIN_PASSWORD=
+      - HTTP_SECUREPORT=9926
+      - OPERATIONSAPI_NETWORK_PORT=null
+      - OPERATIONSAPI_NETWORK_SECUREPORT=9925
+    volumes:
+      - ./application:/home/harperdb/hdb/components/news
+    ports:
+      - "9925:9925"
+      - "9926:9926"
+      - "9932:9932"

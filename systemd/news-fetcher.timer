@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatic timer for news-fetcher.service
+Requires=news-fetcher.service
+
+[Timer]
+Unit=news-fetcher.service
+OnCalendar=*:0/30
+
+[Install]
+WantedBy=timers.target

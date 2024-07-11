@@ -1,0 +1,19 @@
+[Unit]
+Description=News Fetcher Service
+After=network-online.target
+StartLimitInterval=200
+StartLimitBurst=5
+
+[Service]
+WorkingDirectory=/tmp
+User=ubuntu
+Environment=HDB_ENDPOINT=https://10.16.1.35:9926/Entry
+Environment=HDB_USERNAME=HDB_INGEST
+Environment=HDB_PASSWORD=abcd1234
+Environment=GROQ_API_KEY=gsk_aaaaaaaaaaaaaaaaaaaaaa
+ExecStart=/path/to/node /path/to/hdb/components/news/news-fetcher-service/service.js
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
