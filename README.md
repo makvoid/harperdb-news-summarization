@@ -29,11 +29,11 @@ rm -rf ../application/web
 cp -r build ../application/web
 
 # Add a password for the HDB_ADMIN user in docker-compose.yml
+cd ..
 nano docker-compose.yml
 # Add the password to line 9
 
 # Start the docker container
-cd ..
 docker compose up -d
 ```
 
